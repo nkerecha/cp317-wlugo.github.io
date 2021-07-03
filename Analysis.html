@@ -1,0 +1,98 @@
+<h1><strong>WLU Go Analysis Document</strong></h1>
+<h2><b><u>Table of Contents</u></b></h2>
+    <ul>
+        <li><a href="#1. Introduction">1. Introduction</a></li>
+        <ul>
+            <li><a href="#1.1 Project Summary">1.1 Project Summary</a></li>
+            <li><a href="#1.2 Project Purpose">1.2 Project Purpose</a></li>
+        </ul>
+        <li><a href="#2. Object Classification">2. Overall Description</a></li>
+        <ul>
+            <li><a href="#2.1 Object diagram">2.1 Object diagram</a></li>
+            <li><a href="#2.2 Entity Objects">2.2 Entity Objects</a></li>
+            <li><a href="#2.3 Control Objects">2.3 Control Objects</a></li>
+            <li><a href="#2.4 Boundary Objects">2.4 Boundary Objects</a></li>
+        </ul>
+        <li><a href="#3. Controller Diagrams">3. Controller Diagrams</a></li>
+        <ul>
+            <li><a href="#3.1 User Controller Event Loop">3.1 User Controller Event Loop</a></li>
+            <li><a href="#3.2 User Controller Class">3.2 User Controller Class</a></li>
+            <li><a href="#3.3 Event Controller Class">3.3 Event Controller Class</a></li>
+        </ul>
+        <li><a href="#4. Non Functional Attributes">4. Non Functional Attributes</a></li>
+        <li><a href="#5. Classes">5. Classes</a></li>
+        <li><a href="#6. Version History">6. Version History</a></li>
+    </ul>
+<p>&nbsp;</p>
+<h2><b><a name="1. Introduction"></a>1. Introduction</b></h2>
+<h4><b><a name ="1.1 Project summary">1.1 Project summary</a></b></h4>
+<p><span style="font-weight: 400;">WLU Go is a web application that allows users to view, rate, and review the courses offered at Wilfrid Laurier University (WLU). It would help students get an idea of what a course is like by reading reviews and different rating parameters.&nbsp;</span></p>
+<p><span style="font-weight: 400;">As of now, there is no dedicated way for WLU students to get a thorough understanding of the courses offered other than through word of mouth. We want WLU Go to be a one-stop universal web application that is easily accessible and provides information on any WLU course with just a quick course code search.&nbsp;</span></p>
+<p><span style="font-weight: 400;">The scope of the project is a fully functional web-based application that allows Wilfrid Laurier University students access to information on every course offered at the university. The objective of WLU Go is to help students gain a better understanding of WLU courses based on the experiences of others, desired birdness (difficulty), enjoyability, and usefulness. Through the use of this application, students will have an easier time deciding which courses to take.</span></p>
+<p>&nbsp;</p>
+<h4><b><a name ="1.2 Project purpose">1.2 Project purpose</a></b></h4>
+<p><span style="font-weight: 400;">This document will cover all of the analysis needed for </span><em><span style="font-weight: 400;">WLU Go</span></em><span style="font-weight: 400;"> and will describe all of its features and how they work.</span></p>
+<p><span style="font-weight: 400;">The intended audience for this document will be the client (David Brown) and the project team. They will use this document to be reminded of the analysis of the project. The document will also be used as the basis for the project.</span></p>
+<p><span style="font-weight: 400;">The intended audience for this web application is future and current Wilfrid Laurier University students who are looking to get some insight on the courses which they will potentially take or want to leave some knowledge about their experience with their respective course. In addition, the users of this web application are expected to have a basic understanding of how to use a modern website and internet browser.&nbsp;</span></p>
+<p><span style="font-weight: 400;">It will be helpful but not necessary if users have previous experience with other community-like social platforms (e.g. Reddit or Facebook). With this prior expertise, users will be comfortable using some of the features WLU Go has to offer, such as a comment system, rating network, and feedback loop.</span></p>
+<p>&nbsp;</p>
+<h2><b><a name="2. Object Classification"></a>2. Object Classification</b></h2>
+<h4><b><a name ="2.1 Object diagram">2.1 Object diagram</a></b></h4>
+<div style="width:900px; height:600px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:900px; height:600px" src="https://lucid.app/documents/embeddedchart/b492c886-afe7-4dfe-8925-24acaf856ec8" id="GbzR3I6UV.BO"></iframe></div>
+<p>&nbsp;</p>
+<h4><b><a name ="2.2 Entity Objects">2.2 Entity Objects</a></b></h4>
+<p><strong><em>Users</em></strong> <em><span style="font-weight: 400;">- </span></em><span style="font-weight: 400;">Typically a student who is enrolled at Wilfrid Laurier University who wants to view or review some Laurier courses.&nbsp;</span></p>
+<p><strong><em>Courses - </em></strong><span style="font-weight: 400;">Courses are all of the classes which are currently offered at Wilfrid Laurier University.&nbsp;</span></p>
+<p><strong><em>Post -</em></strong><span style="font-weight: 400;"> A post is an object that will only include text characters. Posts will be created by </span><strong><em>Users</em></strong><span style="font-weight: 400;"> for all of the </span><strong><em>Group </em></strong><span style="font-weight: 400;">to see.</span></p>
+<p><strong><em>Profile - </em></strong><span style="font-weight: 400;">The users profile, which holds their information, such as their email address.</span></p>
+<p><strong><em>Page - </em></strong><span style="font-weight: 400;">Navigation through different pages that hold other reviews left by other users.</span></p>
+<p><strong><em>Reviews -</em></strong><span style="font-weight: 400;"> Previous reviews that have been posted by users.</span></p>
+<p>&nbsp;</p>
+<h4><b><a name ="2.3 Control Objects">2.3 Control Objects</a></b></h4>
+<p><strong><em>User Controller -</em></strong> <span style="font-weight: 400;">Coordinates all data that relates to the user.</span></p>
+<p><strong><em>User Interface -</em></strong> <span style="font-weight: 400;">Coordinates all data related to leaving a review, and all other actions that can take place.</span></p>
+<p>&nbsp;</p>
+<h4><b><a name ="2.4 Boundary Objects">2.4 Boundary Objects</a></b></h4>
+<p><strong><em>Registration View -</em></strong> <span style="font-weight: 400;">The registration page presents new users an option to create a brand new account. Users will be able to create an account using any email address (from any domain) and a password that meets the complexity requirements. If a user enters an email that has already been registered then, an error message will appear to indicate this email is already in the records. As well, if a password is typed in and it does not meet the complexity requirements then, an error message will appear indicating a stronger password must be chosen.&nbsp;&nbsp;</span></p>
+<p><strong><em>Login View - </em></strong><span style="font-weight: 400;">The login page will be used to store the user credentials and identify the particular user. This will require two pieces of information from the user, their User Identification and password. If the user enters credentials that are not correct (they do not associate with an existing user record) then, an error message will be displayed asking users to enter their information once again. If the user forgets their password, they can be sent a one time 6 digit code to their email in order to reset their password.</span></p>
+<p><strong><em>Search View - </em></strong><span style="font-weight: 400;"> The search option will allow the user to search the entire website for any Laurier course. The user must input the exact course code or the full name of the course they want to search. The course that matches the search will be shown in a drop down menu, from there the user can select that course and they will be taken to the course page. If a user enters an invalid input (e.g. a non-Laurier course) then, an error message will appear saying “No course was found”. </span></p>
+<p><strong><em>Post View - </em></strong><span style="font-weight: 400;">The post function is used to create a new Laurier course review. The user will have a chance to create a post once they are on a specific course page. Once they are on a specific course page, they can click the “new post” button. </span></p>
+<p>&nbsp;</p>
+<h2><b><a name="3. Controller Diagrams"></a>3. Controller Diagrams</b></h2>
+
+<h4><b><a name ="3.1 User Controller Event Loop">3.1 User Controller Event Loop</a></b></h4>
+<img src="/images/userEvent.png">
+<p>&nbsp;</p>
+<h4><b><a name ="3.2 User Controller Class">3.2 User Controller Class</a></b></h4>
+<img src="/images/userClass.png">
+<p>&nbsp;</p>
+<h4><b><a name ="3.3 Event Controller Class">3.3 Event Controller Class</a></b></h4>
+<img src="/images/eventClass.png">
+<p>&nbsp;</p>
+<h2><b><a name="4. Non Functional Attributes"></a>4. Non Functional Attributes</b></h2>
+<ul>
+    <li style="font-weight: 400;"><span style="font-weight: 400;">Users will be able to see posted reviews by themselves or others in under 5 seconds
+    </span></li>
+    <li style="font-weight: 400;"><span style="font-weight: 400;">User will see a splash screen when first opening WLU Go
+    </span></li>
+</ul>
+<p>&nbsp;</p>
+<h2><b><a name="5. Classes"></a>5. Classes</b></h2>
+<div style="width: 1100px; height: 900px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:1100px; height:900px" src="https://lucid.app/documents/embeddedchart/2150759e-edf7-4230-82d3-aae50eed1022" id="xSzRXUzffe~R"></iframe></div><p>&nbsp;</p>
+<h2><b><a name="6. Version History"></a>6. Version History</b></h2>
+<p><strong>Version 1.0 - 06/24/2021</strong></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Moman Malik</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Ali Zaidi</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Taha Khurram</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Bilal Naeemuddin</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Umar Shoaib</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Owais Asif</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Hongyu Cai</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Zachary Dewan</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Naftal teddy Kerecha</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Rini Perencsik</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Vibeesshanan Thevamanoharan</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Pranav Verma</span></li>
+</ul>
+<p>&nbsp;</p>
